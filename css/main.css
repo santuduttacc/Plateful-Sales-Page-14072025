@@ -81,6 +81,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
   line-height: 115%;
+  margin-top: 5px;
 }
 .text__summer {
   color: var(--colorYellow);
@@ -123,6 +124,12 @@ body {
 }
 .rating__bar {
   gap: 8px;
+}
+.rating__bar p {
+  font-weight: 500 !important;
+}
+span.text-underline {
+  text-decoration: underline;
 }
 .content__bar h2 {
   font-size: clamp(1.625rem, 5vw, 2.875rem);
@@ -369,7 +376,7 @@ span.box__anim {
 }
 .video-box {
   position: relative;
-  border-radius: 5px;
+  border-radius: 0px;
   overflow: hidden;
 }
 .video-box video {
@@ -391,7 +398,7 @@ span.box__anim {
   line-height: 50px;
   font-weight: bold;
   max-width: 570px;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   color: var(--colorDarkOne);
 }
 .section__five .section__heading h2 {
@@ -452,11 +459,12 @@ section#section__six .card h5 {
   text-align: center;
 }
 section#section__six .card {
-  padding: 1rem !important;
   max-width: 380px;
   min-height: 339px;
-  box-shadow: 2px 5px 5px 0px rgba(9, 65, 60, 0.1);
-  border: 0;
+  border: 0px;
+  padding: 1rem !important;
+  box-shadow: 2px 5px 5px rgba(9, 65, 60, 0.1) !important;
+  border-radius: 10px !important;
 }
 section#section__six .card-body {
   padding: 1.375rem 0;
@@ -639,7 +647,7 @@ section#section__six .card p {
 
 .review-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   break-inside: avoid;
   padding: 15px;
@@ -719,8 +727,14 @@ section#section__six .card p {
   .show-mob {
     display: block !important;
   }
+  .flex-mob-col {
+    flex-direction: column;
+  }
   .section__ten h2 {
     font-size: 23px;
+  }
+  section#section__four {
+    overflow-x: hidden;
   }
   .faq-box {
     padding: 0 10px;
@@ -741,11 +755,7 @@ section#section__six .card p {
     transform: scale(0.9);
     margin-right: 0 !important;
   }
-  h2.mob-size {
-    text-align: center;
-    font-size: 24px;
-    margin: 0 auto;
-  }
+
   .section__four .swiper-wrapper {
     align-items: center;
     justify-content: space-evenly;
@@ -758,14 +768,28 @@ section#section__six .card p {
     display: block;
     margin: 0 auto;
   }
-  .pt-60 {
+  /* .pt-60 {
     padding: 0;
-  }
+  } */
   .section__nine h2 {
     font-size: 33px;
     line-height: 120%;
     max-width: 319px;
     margin-top: 24px;
+  }
+  h2.mob-size {
+    text-align: center;
+    font-size: 24px !important;
+    line-height: 130% !important;
+    margin: 0 auto;
+  }
+  .section__nine ul li {
+    font-size: 17px;
+    line-height: 130%;
+  }
+  .section__nine p {
+    font-size: 17px;
+    line-height: 140%;
   }
   .mt-14 {
     margin-top: 14px;
@@ -778,8 +802,8 @@ section#section__six .card p {
     margin: 0 auto;
   }
   .section__four .swiper-wrapper .swiper-slide {
-    width: 100% !important;
-    height: 100% !important;
+    width: auto !important;
+    height: auto !important;
     border-radius: inherit !important;
   }
   .feature-item img {
@@ -845,7 +869,6 @@ section#section__six .card p {
   .video-item video {
     max-width: 100%;
     border-radius: 10px;
-    width: 18.188rem !important;
     margin: 0 auto;
     display: block;
   }
@@ -857,9 +880,14 @@ section#section__six .card p {
   .slider__Grid .swiper.thumb-slider {
     margin-bottom: 18px;
   }
+  .footer {
+    padding: 20px 0 !important;
+  }
+}
+@media (max-width: 400px) {
   .section__four .swiper-wrapper .swiper-slide {
-    max-width: 20.688rem !important;
-    height: 34.375rem !important;
-    border-radius: inherit;
+    width: 78% !important;
+    height: auto;
+    border-radius: inherit !important;
   }
 }

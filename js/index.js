@@ -47,10 +47,18 @@ const mainSlider = new Swiper(".main-slider", {
 });
 
 var swiper = new Swiper(".section__four .swiper-container", {
-  slidesPerView: 1.2, // show a bit of next slide
-  loop: true,
-  centeredSlides: true, // enables center mode
+  slidesPerView: 1.25, // show a bit of next slide
+  loop: true, // loop only works well with enough slides
+  centeredSlides: true,
+  grabCursor: true,
   initialSlide: 2,
+  on: {
+    reachEnd: function () {
+      setTimeout(() => {
+        swiper.slideTo(1); // Reset to first slide
+      }, 1000); // delay for visual effect
+    },
+  },
   breakpoints: {
     768: {
       enabled: false,
@@ -80,24 +88,35 @@ $(".acdn-heading").click(function () {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const mainCTA = document.getElementById("section__two");
-//   const stickyCTA = document.getElementById("sticky-cta");
+document.addEventListener("DOMContentLoaded", function () {
+  const mainCTA = document.getElementById("section__two");
+  const stickyCTA = document.getElementById("sticky-cta");
 
-//   const observer = new IntersectionObserver(
-//     (entries) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           stickyCTA.classList.add("d-none");
-//         } else {
-//           stickyCTA.classList.remove("d-none");
-//         }
-//       });
-//     },
-//     {
-//       threshold: 0.1,
-//     }
-//   );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          stickyCTA.classList.add("d-none");
+        } else {
+          stickyCTA.classList.remove("d-none");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
 
-//   observer.observe(mainCTA);
-// });
+  observer.observe(mainCTA);
+});
+
+//play video
+
+const playButtons = document.querySelectorAll(".playButton");
+
+playButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const video = button.previousElementSibling;
+    video.play();
+  });
+});

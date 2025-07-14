@@ -47,21 +47,15 @@ const mainSlider = new Swiper(".main-slider", {
 });
 
 var swiper = new Swiper(".section__four .swiper-container", {
-  slidesPerView: 1.25, // show a bit of next slide
-  loop: true, // loop only works well with enough slides
+  slidesPerView: 1.3, // Show 1 full + part of next
   centeredSlides: true,
+  spaceBetween: 12,
+  loop: true,
   grabCursor: true,
-  initialSlide: 2,
-  on: {
-    reachEnd: function () {
-      setTimeout(() => {
-        swiper.slideTo(1); // Reset to first slide
-      }, 1000); // delay for visual effect
-    },
-  },
+  initialSlide: 2, // start from first
   breakpoints: {
     768: {
-      enabled: false,
+      enabled: false, // disable Swiper on desktop
     },
   },
 });
@@ -120,3 +114,6 @@ playButtons.forEach((button) => {
     video.play();
   });
 });
+setTimeout(() => {
+  swiper.slideToLoop(0, 0); // jump to real first slide instantly
+}, 100);
